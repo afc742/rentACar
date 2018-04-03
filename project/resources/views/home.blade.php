@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+
+                    <p>User profile</p>
                 </div>
             </div>
         </div>
