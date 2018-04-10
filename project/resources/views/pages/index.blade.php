@@ -2,7 +2,7 @@
 @if (Route::has('login'))
 @auth
 @section('content')  
-            <h1>"LOGGED IN"</h1>
+            @include("\home")
 @endsection
 @else
 @section('content')  
