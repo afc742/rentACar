@@ -1,4 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<h1> About </h1>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1> About </h1>
+    </div>
+</div>
 @endsection
