@@ -1,3 +1,74 @@
-body{
-    background: rgb(163, 221, 245);
+body
+{
+    background: rgb(252, 249, 241);
+}
+.navbar.navbar-expand-md.navbar-dark.navbar-laravel
+{
+    background-color: rgb(22, 21, 21);
+    margin-bottom: 0px;
+}
+.jumbotron
+{
+    padding-top: 10%;
+    padding-bottom:5%;
+    background-image: url("/images/drive.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    opacity: 0.9;
+}
+.container.jumbo
+{
+    opacity: 1.0;
+    position: relative;
+    left: 10%;
+    margin-bottom: 15%;
+
+}
+.jumbotron h1
+{
+    color: #fff;
+    font-size: 450%;
+}
+.jumbotron p
+{
+    color: #fff;
+    font-size: 150%;
+}
+.banner_arrow
+{
+    height: 80px;
+    background-color: rgb(255, 206, 161);
+    text-align: center;
+    position: relative;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    border-radius: 5px;
+}
+.banner_arrow::after
+{
+    content: '';
+    position: absolute;
+    left: 48%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 30px solid  rgb(255, 206, 161);
+    clear: both;
+}
+.banner_arrow p
+{
+    color: rgb(22, 21, 21);
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 250;
+    line-height: 1.6;
+    font-family: 'Raleway', sans-serif;
+}
+.panel-title a{
+    color: rgb(22, 21, 21);
 }

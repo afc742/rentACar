@@ -9995,7 +9995,77 @@ a.text-dark:focus {
 }
 
 body {
-  background: #a3ddf5;
+  background: #fcf9f1;
+}
+
+.navbar.navbar-expand-md.navbar-dark.navbar-laravel {
+  background-color: #161515;
+  margin-bottom: 0px;
+}
+
+.jumbotron {
+  padding-top: 10%;
+  padding-bottom: 5%;
+  background-image: url("/images/drive.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  opacity: 0.9;
+}
+
+.container.jumbo {
+  opacity: 1.0;
+  position: relative;
+  left: 10%;
+  margin-bottom: 15%;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 450%;
+}
+
+.jumbotron p {
+  color: #fff;
+  font-size: 150%;
+}
+
+.banner_arrow {
+  height: 80px;
+  background-color: #ffcea1;
+  text-align: center;
+  position: relative;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border-radius: 5px;
+}
+
+.banner_arrow::after {
+  content: '';
+  position: absolute;
+  left: 48%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 30px solid #ffcea1;
+  clear: both;
+}
+
+.banner_arrow p {
+  color: #161515;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 250;
+  line-height: 1.6;
+  font-family: 'Raleway', sans-serif;
+}
+
+.panel-title a {
+  color: #161515;
 }
 
 .navbar-laravel {
