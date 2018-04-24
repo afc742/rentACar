@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '808683335983979',
+        'client_secret' => '2ef6f1b00c7542f3859f23ca4c2dea31',
+        'redirect' => 'http://rentacar.test/callback',
+    ],
+
 ];

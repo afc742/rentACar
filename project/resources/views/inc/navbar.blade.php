@@ -16,7 +16,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li><a class="nav-link" href="/#about">About</a></li>
+                        @guest
+                            <li><a class="nav-link" href="/#about">About</a></li>
+                        @else
+                            <li><a class="nav-link" href="/about">About</a></li>
+                        @endguest
                         <li><a class="nav-link" href="/faq">FAQ</a></li>
                         <!-- Authentication Links -->
                         @guest
