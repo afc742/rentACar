@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -16,7 +16,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li><a class="nav-link" href="/about">About</a></li>
+                        <li><a class="nav-link" href="/#about">About</a></li>
                         <li><a class="nav-link" href="/faq">FAQ</a></li>
                         <!-- Authentication Links -->
                         @guest
