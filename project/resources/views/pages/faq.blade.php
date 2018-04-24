@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+<<<<<<< HEAD
+    <div class="jumbotron text-center">
+        <h1> FAQ </h1>
+=======
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -54,6 +58,7 @@
                 </div>
             </div>
         </div>
+>>>>>>> 4470f9da143ea751747e06dd8d409ddbde0d9545
     </div>
 </div>
 @endsection
