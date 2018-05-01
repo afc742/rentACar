@@ -19,6 +19,7 @@
                         @guest
                             <li><a class="nav-link" href="/#about">About</a></li>
                         @else
+                            <li><a class="nav-link" href="/posts">Find Cars</a></li>
                             <li><a class="nav-link" href="/about">About</a></li>
                         @endguest
                         <li><a class="nav-link" href="/faq">FAQ</a></li>

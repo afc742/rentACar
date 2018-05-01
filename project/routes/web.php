@@ -25,3 +25,5 @@ Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
+Route::resource('posts', 'PostsController');
+
