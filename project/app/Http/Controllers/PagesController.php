@@ -20,4 +20,9 @@ class PagesController extends Controller
         $title = 'faq';
         return view('pages.faq')->with('title', $title);
     }
+
+    public function bank(){
+        $title = 'Extra details required';
+        return view('pages.bank')->with('title', $title);
+    }
 }
