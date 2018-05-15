@@ -44,9 +44,23 @@ class PostsController extends Controller
             'trans' => 'required',
             'seats' => 'required',
             'doors' => 'required',
-            'desc'=> 'required'
+            'desc'=> 'required',
+            'car_img' => 'image|max:1999',
         ]);
-
+        if($request->hasFile('car_img'))
+        {
+        //Handle File Upload
+            //Get filename with ext
+            $filenameWithExt = $request->file('car_img')->getClientOriginalName();
+            //Get just filname
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('car_img')->getClientOriginalExtension();
+            // Filename to store
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Img
+            $path = $request->file('car_img')->storeAs('public/car_images', $filenameToStore);       
+        }
         //Create Post
         $post = new Post;
         $post->year = $request->input('year');
@@ -57,6 +71,7 @@ class PostsController extends Controller
         $post->seats = $request->input('seats');
         $post->doors = $request->input('doors');
         $post->desc = $request->input('desc');
+        $post->car_img = $filenameToStore;
         $post->save();
 
         return redirect('/posts')->with('success', 'Listing Added');

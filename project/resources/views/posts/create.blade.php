@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Create Listing</h1>
-    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group row">
         <div class="form-group"> {{--make--}}
             {{Form::label('make', 'Make:', ['class' => 'col-sm-4 col-form-label'])}}
@@ -57,6 +57,11 @@
             {{Form::label('desc', 'Description:', ['class' => ''])}}
             <div class="">
                 {{Form::textArea('desc', '', ['class' => 'form-control', 'placeholder' => '...Desc'])}}
+            </div>
+        </div>
+        <div class="form-group"> {{--img--}}
+            <div class="">
+                {{Form::file('car_img')}}
             </div>
         </div>
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
