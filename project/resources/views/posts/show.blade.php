@@ -4,12 +4,22 @@
 <div class="container">
     <a href="/posts" class="btn btn-default">Go Back</a>
     <h1>{{$post->make}} {{$post->model}} - {{$post->year}}</h1>
-    <div class="well">
-        <p><b>Type: </b>{{$post->type}}</p> 
-        <p><b>Transmission: </b>{{$post->trans}}</p>
-        <p><b>Seats: </b>{{$post->seats}}</p>
-        <p><b>Doors: </b>{{$post->doors}}</p>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <p><b>Type: </b>{{$post->type}}</p> 
+                <p><b>Transmission: </b>{{$post->trans}}</p>
+                <p><b>Seats: </b>{{$post->seats}}</p>
+                <p><b>Doors: </b>{{$post->doors}}</p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <img style="width=100%" src="/storage/car_images/{{$post->car_img}}">
+            <br><br>
+        </div>
     </div>
+
     <div class="well">
             <p><b>Description:</b></p>
             <p>{{$post->desc}}</p>
