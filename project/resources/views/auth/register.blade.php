@@ -65,7 +65,13 @@
                             <label for = "license_number" class = "col-md-4 col-form-label text-md-right">{{ __('License Number') }}</label>
 
                             <div class = "col-md-6">
-                                <input id = "license_number" type = "text" class = "form-control" name = "license_number" required>
+                                <input id = "license_number" type = "text" class="form-control{{ $errors->has('license_number') ? ' is-invalid' : '' }}" name = "license_number" required>
+
+                                @if ($errors->has('license_number'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('license_number') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
