@@ -62,10 +62,10 @@
                         </div>
 
                         <div class = "form-group row">
-                            <label for = "license-number" class = "col-md-4 col-form-label text-md-right">{{ __('License Number') }}</label>
+                            <label for = "license_number" class = "col-md-4 col-form-label text-md-right">{{ __('License Number') }}</label>
 
                             <div class = "col-md-6">
-                                <input id = "license-number" type = "text" class = "form-control" name = "license_number" required>
+                                <input id = "license_number" type = "text" class = "form-control" name = "license_number" required>
                             </div>
                         </div>
 
