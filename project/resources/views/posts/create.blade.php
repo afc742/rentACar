@@ -55,6 +55,17 @@
                 <p>  Manual</p>  
             </div>
         </div>
+        <div class="form-group"> {{--pets?--}}
+            {{Form::label('petF', 'Pet friendly?:', ['class' => ''])}}
+            <div class="col-md-12 row">
+                {{Form::radio('petF', 1, ['class' => 'field'])}}
+                <p>Yes</p> 
+            </div>
+            <div class="col-md-12 row">
+                {{Form::radio('petF', 0, ['class' => 'field'])}}
+                <p>  No</p>  
+            </div>
+        </div>
     </div>
     <div class="form-group"> {{--map search bar--}}
         {{Form::label('', 'Location:', ['class' => ''])}}
@@ -66,12 +77,12 @@
 
     <div class="form-group"> {{--lat--}}
         {{Form::label('lat', 'Latitude:', ['class' => ''])}}
-        {{Form::text('lat', '', [ 'id' => 'lat', 'class' => 'form-control input-sm', 'placeholder' => 'Latitude'])}}
+        {{Form::text('lat', '', [ 'id' => 'lat', 'class' => 'form-control input-sm', 'placeholder' => 'Latitude', 'readonly' => 'true'])}}
     </div>
 
     <div class="form-group">{{--lng--}}
         {{Form::label('lng', 'Longitude:', ['class' => ''])}}
-        {{Form::text('lng', '', [ 'id' => 'lng', 'class' => 'form-control input-sm', 'placeholder' => 'Longitude'])}}
+        {{Form::text('lng', '', [ 'id' => 'lng', 'class' => 'form-control input-sm', 'placeholder' => 'Longitude', 'readonly' => 'true'])}}
     </div>
 
     <div class="form-group"> {{--desc--}}
@@ -87,6 +98,8 @@
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
+    <br>
+    <br>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

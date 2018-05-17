@@ -49,6 +49,7 @@ class PostsController extends Controller
             'lat'=> 'required',
             'lng'=> 'required',
             'location' => 'required',
+            'petF' => 'required',
         ]);
         if($request->hasFile('car_img'))
         {
@@ -78,6 +79,7 @@ class PostsController extends Controller
         $post->lat = $request->input('lat');
         $post->lng = $request->input('lng');
         $post->location = $request->input('location');
+        $post->petF = $request->input('petF');
         $post->save();
 
         return redirect('/posts')->with('success', 'Listing Added');

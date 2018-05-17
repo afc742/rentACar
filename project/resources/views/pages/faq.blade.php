@@ -22,6 +22,7 @@
                                     <li>Have a credit or debit card</li></ul></div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -35,6 +36,7 @@
                                 for you simply use our <i>filters</i> feature on the search page.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -48,6 +50,7 @@
                                  We will record the details of the complaint and keep you informed of the progress.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -60,6 +63,7 @@
                                  listing. If you would like to search for only pet friendly cars please use our <i>filters</i> feature on the search page.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -74,6 +78,7 @@
                                 to meet owners, simply book and drive.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -87,6 +92,7 @@
                                 <i><b>Please be aware that fees may apply for cancelling or changing a trip.</b></i></div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -101,6 +107,7 @@
                                 later that you have not caused.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -115,6 +122,7 @@
                                 windows and doors are secure. Once you have successfully returned the car hit the <i>end booking</i> button to complete the booking.</div>
                                 </div>
                             </div>
+                            <br>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">

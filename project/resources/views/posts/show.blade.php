@@ -14,6 +14,11 @@
                 <p><b>Transmission: </b>{{$post->trans}}</p>
                 <p><b>Seats: </b>{{$post->seats}}</p>
                 <p><b>Doors: </b>{{$post->doors}}</p>
+                @if($post->petF == 1)
+                    <p><b>Pet Friendly:</b> Yes</p>
+                @else
+                    <p><b>Pet Friendly:</b> No</p>
+                @endif
                 <br><br><br><br>
             </div>
         </div>
