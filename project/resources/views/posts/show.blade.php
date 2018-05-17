@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="container-flex">
+    <div class="container">
         <div id="map-canvas"></div>
     </div>
 
@@ -36,7 +36,7 @@
     <small>Created on {{$post->created_at}}</small>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlTjBH4hS_0AL3W0L4lpz24mR0HVZILDc" type="text/javascript"></script>
 <script>
         var lat = {{$post->lat}};
         var lng = {{$post->lng}};
