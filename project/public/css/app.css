@@ -9998,6 +9998,15 @@ body {
   background: #fcf9f1;
 }
 
+html,
+body,
+#map-canvas {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .navbar.navbar-expand-md.navbar-dark.navbar-laravel {
   background-color: #161515;
   margin-bottom: 0px;
@@ -10077,5 +10086,10 @@ body {
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#map-canvas {
+  width: 1110px;
+  height: 300px;
 }
 
