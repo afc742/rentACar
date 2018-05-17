@@ -61,7 +61,7 @@
         {{Form::text('location', '', [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
     </div>
         
-    <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div>
+    <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div> {{--map--}}
     <br>
 
     <div class="form-group"> {{--lat--}}
@@ -114,7 +114,7 @@
 		var i, place;
 		for(i=0; place=places[i];i++){
   			bounds.extend(place.geometry.location);
-  			marker.setPosition(place.geometry.location); //set marker position new...
+  			marker.setPosition(place.geometry.location); 
   		}
   		map.fitBounds(bounds);
   		map.setZoom(15);
