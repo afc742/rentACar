@@ -23,7 +23,7 @@
     </div>
 
     <div class="container">
-        <div id="map-canvas"></div>
+        <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div>
     </div>
 
     <br>
