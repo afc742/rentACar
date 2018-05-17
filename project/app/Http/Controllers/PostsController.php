@@ -45,7 +45,9 @@ class PostsController extends Controller
             'seats' => 'required',
             'doors' => 'required',
             'desc'=> 'required',
-            'car_img' => 'image|max:1999',
+            'car_img' => 'image|max:1999|required',
+            'lat'=> 'required',
+            'lng'=> 'required',
         ]);
         if($request->hasFile('car_img'))
         {
@@ -72,6 +74,8 @@ class PostsController extends Controller
         $post->doors = $request->input('doors');
         $post->desc = $request->input('desc');
         $post->car_img = $filenameToStore;
+        $post->lat = $request->input('lat');
+        $post->lng = $request->input('lng');
         $post->save();
 
         return redirect('/posts')->with('success', 'Listing Added');

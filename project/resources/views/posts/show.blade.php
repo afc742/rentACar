@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <a href="/posts" class="btn btn-default">Go Back</a>
     <h1>{{$post->make}} {{$post->model}} - {{$post->year}}</h1>
@@ -12,13 +13,20 @@
                 <p><b>Transmission: </b>{{$post->trans}}</p>
                 <p><b>Seats: </b>{{$post->seats}}</p>
                 <p><b>Doors: </b>{{$post->doors}}</p>
+                <br><br><br><br>
             </div>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center well">
             <img style="width=100%" src="/storage/car_images/{{$post->car_img}}">
             <br><br>
         </div>
     </div>
+
+    <div class="container-flex">
+        <div id="map-canvas"></div>
+    </div>
+
+    <br>
 
     <div class="well">
             <p><b>Description:</b></p>
@@ -27,4 +35,27 @@
     <hr>
     <small>Created on {{$post->created_at}}</small>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q" type="text/javascript"></script>
+<script>
+        var lat = {{$post->lat}};
+        var lng = {{$post->lng}};
+        var map = new google.maps.Map(document.getElementById('map-canvas'),{
+          center:{
+            lat: lat,
+            lng: lng
+          },
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position:{
+            lat:lat,
+            lng: lng
+          },
+          map:map
+        });
+        google.maps.event.trigger(map, "resize");
+</script>
+
 @endsection
+
