@@ -57,8 +57,8 @@
         </div>
     </div>
     <div class="form-group"> {{--map search bar--}}
-        {{Form::label('', 'Address:', ['class' => ''])}}
-        {{Form::text('', '', [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
+        {{Form::label('', 'Location:', ['class' => ''])}}
+        {{Form::text('location', '', [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
     </div>
         
     <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div>

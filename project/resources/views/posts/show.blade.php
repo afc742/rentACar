@@ -5,6 +5,7 @@
 <div class="container">
     <a href="/posts" class="btn btn-default">Go Back</a>
     <h1>{{$post->make}} {{$post->model}} - {{$post->year}}</h1>
+    <h3>{{$post->location}}</h3>
     
     <div class="row">
         <div class="col-md-6">
