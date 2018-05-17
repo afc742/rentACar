@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Posts</h1>
+    <hr>
     @if(count($posts) > 0)
         <div class="container-fluid">
             <div class="row">
