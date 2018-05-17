@@ -96,9 +96,19 @@
             {{Form::file('car_img')}}
         </div>
     </div>
+    <hr>
+    <div class="right">
+            {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+            {{Form::hidden('_method', 'DELETE')}}
+            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+            {!!Form::close()!!}
+        </div>
     {{Form::hidden('_method', 'PUT')}}
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
+    <div class="center">
+            <small><b>Created on {{$post->created_at}}</b> by <b>{{$post->user->name}}</b></small>
+    </div>
     <br>
     <br>
 </div>

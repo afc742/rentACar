@@ -20,7 +20,7 @@
                             </div>
                             <div class="">
                                 <h3><a href="/posts/{{$post->id}}">{{$post->make}} {{$post->model}} - {{$post->year}}</a></h3>
-                                <small>Created on {{$post->created_at}}</small>
+                                <small><b>Created on {{$post->created_at}}</b> by <b>{{$post->user->name}}</b></small>
                             </div>
                         </div>
                     </div>
