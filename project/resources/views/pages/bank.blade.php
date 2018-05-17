@@ -11,7 +11,7 @@
         <div class = "form-group"> {{--bsb--}}
         {{Form::label('bsb', 'BSB:', ['class' => 'col-sm-4 col-form-label'])}}
             <div class= "col-md-12">
-            {{Form::text('make', '', ['class' => 'form-control', 'placeholder' => 'BSB'])}}
+            {{Form::text('bsb', '', ['class' => 'form-control', 'placeholder' => 'BSB'])}}
             </div>
         </div>
         <div class = "form-group"> {{--account_number--}}
