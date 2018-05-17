@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <a href="/posts" class="btn btn-default">Go Back</a>
+    <a href="/posts" class="btn btn-primary">Go Back</a>
     <h1>{{$post->make}} {{$post->model}} - {{$post->year}}</h1>
     <h3>{{$post->location}}</h3>
     
@@ -39,7 +39,14 @@
             <p>{{$post->desc}}</p>
         </div>
     <hr>
-    <small>Created on {{$post->created_at}}</small>
+    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+        {{Form::hidden('_method', 'DELETE')}}
+        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+    {!!Form::close()!!}
+    <div class="center">
+        <small>Created on {{$post->created_at}}</small>
+    </div>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlTjBH4hS_0AL3W0L4lpz24mR0HVZILDc" type="text/javascript"></script>

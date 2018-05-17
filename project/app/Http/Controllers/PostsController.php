@@ -105,7 +105,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')-> with('post', $post);
     }
 
     /**
@@ -117,7 +118,53 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'year' => 'required',
+            'make' => 'required',
+            'model' => 'required',
+            'type' => 'required',
+            'trans' => 'required',
+            'seats' => 'required',
+            'doors' => 'required',
+            'desc'=> 'required',
+            'car_img' => 'image|max:1999|required',
+            'lat'=> 'required',
+            'lng'=> 'required',
+            'location' => 'required',
+            'petF' => 'required',
+        ]);
+        if($request->hasFile('car_img'))
+        {
+        //Handle File Upload
+            //Get filename with ext
+            $filenameWithExt = $request->file('car_img')->getClientOriginalName();
+            //Get just filname
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('car_img')->getClientOriginalExtension();
+            // Filename to store
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Img
+            $path = $request->file('car_img')->storeAs('public/car_images', $filenameToStore);       
+        }
+        //Find Post
+        $post = Post::find($id);
+        $post->year = $request->input('year');
+        $post->make = $request->input('make');
+        $post->model = $request->input('model');
+        $post->type = $request->input('type');
+        $post->trans = $request->input('trans');
+        $post->seats = $request->input('seats');
+        $post->doors = $request->input('doors');
+        $post->desc = $request->input('desc');
+        $post->car_img = $filenameToStore;
+        $post->lat = $request->input('lat');
+        $post->lng = $request->input('lng');
+        $post->location = $request->input('location');
+        $post->petF = $request->input('petF');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Listing Updated');
     }
 
     /**
@@ -128,6 +175,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Listing Removed');
     }
 }
