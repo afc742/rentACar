@@ -34,11 +34,28 @@
     </div>
 
     <br>
-
-    <div class="well">
-            <p><b>Description:</b></p>
-            <p>{{$post->desc}}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                    <p><b>Description:</b></p>
+                    <p>{{$post->desc}}</p>
+            </div>
         </div>
+        @if(Auth::user()->id != $post->user_id)
+            <div class="col-md-6">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <a href="/posts" class="btn btn-primary">Message {{$post->user->name}}</a>
+                        </div>
+                        <div class="col-md-6 text-left">
+                            <a href="/posts" class="btn btn-primary">Make booking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
     <hr>
     @if(!Auth::guest())
         @if(Auth::user()->id == $post->user_id)
