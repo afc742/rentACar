@@ -69,6 +69,24 @@
     <div class="center">
             <small><b>Created on {{$post->created_at}}</b> by <b>{{$post->user->name}}</b></small>
     </div>
+
+    {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+    <div class="row">
+        <div class="form-group"> {{--start_date--}}
+            {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
+            <div class="col-md-12">
+                {{Form::date('start_date', \Carbon\Carbon::now())}} 
+            </div>
+        </div>
+        <div class="form-group"> {{--end_date--}}
+            {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
+            <div class="col-md-12">
+                {{Form::date('end_date', \Carbon\Carbon::now())}} 
+            </div>
+        </div>
+        <input type='hidden' value='{{$post->id}}' name='post_id'>
+    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+    {!! Form::close() !!}
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlTjBH4hS_0AL3W0L4lpz24mR0HVZILDc" type="text/javascript"></script>
