@@ -59,8 +59,8 @@ class BookingsController extends Controller
      */
     public function show($id)
     {
-        $bookings = Booking::where('post_id',$id)->orderBy('start_date', 'asc')
-                                                 ->get();
+        $bookings = Booking::where('post_id',$id)->orderBy('start_date', 'asc')->paginate(8);
+                                                 
         $post_id = $id;
         return view('posts.showBookings')->with('bookings', $bookings)
                                          ->with('post_id', $post_id);

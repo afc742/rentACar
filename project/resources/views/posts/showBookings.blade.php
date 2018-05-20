@@ -20,6 +20,8 @@
     @else
         <p>No posts</p>
     @endif
+    <hr>
+    {{$bookings->links()}}
 </div>
 @endsection
 
