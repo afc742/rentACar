@@ -98,8 +98,7 @@
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
-    <br>
-    <br>
+    <br><br><hr><br><br>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -15,7 +15,6 @@ class BookingsController extends Controller
      */
     public function index()
     {
-        return view('bookings');
     }
 
     /**
@@ -46,6 +45,10 @@ class BookingsController extends Controller
         $booking->start_date = $request->input('start_date');
         $booking->end_date = $request->input('end_date');
         $booking->save();
+        
+        return redirect('/bookings')->with('success', 'Reservation added');
+                                    
+        //return view('posts.showBookings')->with('success', 'Booking Added');
     }
 
     /**
@@ -56,7 +59,11 @@ class BookingsController extends Controller
      */
     public function show($id)
     {
-        //
+        $bookings = Booking::where('post_id',$id)->orderBy('start_date', 'asc')
+                                                 ->get();
+        $post_id = $id;
+        return view('posts.showBookings')->with('bookings', $bookings)
+                                         ->with('post_id', $post_id);
     }
 
     /**

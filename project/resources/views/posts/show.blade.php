@@ -49,7 +49,7 @@
                             <a href="/posts" class="btn btn-primary">Message {{$post->user->name}}</a>
                         </div>
                         <div class="col-md-6 text-left">
-                            <a href="/posts" class="btn btn-primary">Make booking</a>
+                            <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
                         </div>
                     </div>
                 </div>
