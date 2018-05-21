@@ -43,40 +43,14 @@
     <br>
     <div class="row">
         @if(Auth::user()->id != $post->user_id)
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="well">
                         <p><b>Description:</b></p>
                         <p>{{$post->desc}}</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="well">
-                    @if(Auth::user()->cc)
-                        {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
-                        <div class="row">
-                            <div class="form-group"> {{--start_date--}}
-                                {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
-                                <div class="col-md-12">
-                                    {{Form::date('start_date', \Carbon\Carbon::now())}} 
-                                </div>
-                            </div>
-                            <div class="form-group"> {{--end_date--}}
-                                {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
-                                <div class="col-md-12">
-                                    {{Form::date('end_date', \Carbon\Carbon::now())}} 
-                                </div>
-                            </div>
-                            <input type='hidden' value='{{$post->id}}' name='post_id'>
-                            <input type='hidden' value='{{$post->price}}' name='post_price'>
-                        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-                        {!! Form::close() !!}
-                        </div>
-                    @else
-                        <h5 class="center">Please register a credit card to book</h5>
-                    @endif
-                </div>
-            </div>
-            <div class="col-md-4">
+            
+            <div class="col-md-6">
                 <div class="well center">
                         <a href="{!! route('messages.create',[$post->user->id, $post->id]) !!}" class="btn btn-primary">Message {{$post->user->name}}</a>
                         <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
@@ -97,7 +71,39 @@
             </div>
         @endif
     </div>
-    <hr>
+    @if(Auth::user()->id != $post->user_id)
+        @if(Auth::user()->cc)
+            {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+            <div class="well">
+                <table style="margin-left:20%">
+                    <tr>
+                        <td>
+                            <div class="form-group"> {{--start_date--}}
+                                {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                                    {{Form::date('start_date', \Carbon\Carbon::now())}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group"> {{--end_date--}}
+                                {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                                    {{Form::date('end_date', \Carbon\Carbon::now())}} 
+                            </div>
+                        </td>
+                        <td>
+                            <input type='hidden' value='{{$post->id}}' name='post_id'>
+                            <input type='hidden' value='{{$post->price}}' name='post_price'>
+                            {{Form::submit('Make Booking', ['class' => 'btn btn-primary'])}}
+                        </td>
+                    </tr>
+                    {!! Form::close() !!}
+            
+            @else
+                <div class="well">Please register a credit card to book</h5>
+            @endif
+                </table>
+            </div>
+    @endif
+    <br><hr>
     @if(!Auth::guest())
         @if(Auth::user()->id == $post->user_id)
             <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
