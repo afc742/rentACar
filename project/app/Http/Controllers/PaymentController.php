@@ -13,7 +13,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('home')->with('success', 'Payment successful');
     }
 
     /**
@@ -56,7 +56,7 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

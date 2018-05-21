@@ -16,10 +16,16 @@
                 <p><b>Transmission: </b>{{$post->trans}}</p>
                 <p><b>Seats: </b>{{$post->seats}}</p>
                 <p><b>Doors: </b>{{$post->doors}}</p>
+                <p><b>Odometer: </b>{{$post->odometer}} kms</p>
                 @if($post->petF == 1)
                     <p><b>Pet Friendly:</b> Yes</p>
                 @else
                     <p><b>Pet Friendly:</b> No</p>
+                @endif
+                @if($post->roof_r == 1)
+                    <p><b>Roof racks:</b> Yes</p>
+                @else
+                    <p><b>Roof racks:</b> No</p>
                 @endif
                 <br><br><br><br>
             </div>
@@ -45,25 +51,29 @@
             </div>
             <div class="col-md-4">
                 <div class="well">
-                    {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
-                    <div class="row">
-                        <div class="form-group"> {{--start_date--}}
-                            {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
-                            <div class="col-md-12">
-                                {{Form::date('start_date', \Carbon\Carbon::now())}} 
+                    @if(Auth::user()->cc)
+                        {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+                        <div class="row">
+                            <div class="form-group"> {{--start_date--}}
+                                {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                                <div class="col-md-12">
+                                    {{Form::date('start_date', \Carbon\Carbon::now())}} 
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group"> {{--end_date--}}
-                            {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
-                            <div class="col-md-12">
-                                {{Form::date('end_date', \Carbon\Carbon::now())}} 
+                            <div class="form-group"> {{--end_date--}}
+                                {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                                <div class="col-md-12">
+                                    {{Form::date('end_date', \Carbon\Carbon::now())}} 
+                                </div>
                             </div>
-                        </div>
-                        <input type='hidden' value='{{$post->id}}' name='post_id'>
-                        <input type='hidden' value='{{$post->price}}' name='post_price'>
+                            <input type='hidden' value='{{$post->id}}' name='post_id'>
+                            <input type='hidden' value='{{$post->price}}' name='post_price'>
                         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                         {!! Form::close() !!}
-                    </div>
+                        </div>
+                    @else
+                        <h5 class="center">Please register a credit card to book</h5>
+                    @endif
                 </div>
             </div>
             <div class="col-md-4">
@@ -81,6 +91,7 @@
             </div>
             <div class="col-md-6">
                 <div class="well center">
+                    <a href='/facebookPost/{{$post->id}}' class="btn btn-primary">Share to facebook</a>
                     <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
                 </div>
             </div>

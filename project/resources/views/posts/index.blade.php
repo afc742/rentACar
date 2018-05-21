@@ -9,6 +9,44 @@
     </div>
     <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div>
     <br>
+
+    {!! Form::open(['action' => 'PostsController@search', 'method' => 'GET', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+    <div class="row well" style="margin: auto">
+        <div class = "col-md-3"> 
+            <div class="form-group right"> {{--pets?--}}
+                {{Form::label('petF', 'Pet friendly?:', ['class' => ''])}}
+                    {{Form::checkbox('petF', 1, false,['class' => 'field'])}}
+            </div>
+        </div>
+        <div class = "col-md-3"> 
+            <div class="form-group right"> {{--roof racks?--}}
+                {{Form::label('roof_r', 'Roof racks?:', ['class' => ''])}} 
+                    {{Form::checkbox('roof_r', 1, false,['class' => 'field'])}}   
+            </div>
+        </div>
+        <div class = "col-md-3">   
+            <div class="form-group"> {{--trans--}}
+                <div class="right" stlye="margin-right: 6px">
+                    {{Form::radio('trans', 'Automatic', ['class' => 'field'])}}
+                    <p>A</p> 
+                </div>
+                <div class="right" style="margin-right: 20px">
+                    {{Form::radio('trans', 'Manual', ['class' => 'field'])}}
+                    <p>  M</p>  
+                </div>
+                <p class="right" style="margin-right: 20px">Transmition:</p>
+            </div>
+        </div>
+        <div class = "col-md-3">
+            <div class="form-group center">
+                {{Form::submit('Search', ['class' => 'btn btn-primary'])}}
+                {!! Form::close() !!}
+                <a href="/posts" class="btn btn-primary">All</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    
     
     @if(count($posts) > 0)
         <div class="container-fluid">

@@ -6,90 +6,104 @@
     <h1>Create Listing</h1>
     <hr>
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
-    <div class="row">
-        <div class="form-group"> {{--make--}}
-            {{Form::label('make', 'Make:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::text('make', '', ['class' => 'form-control', 'placeholder' => 'Make'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--model--}}
-            {{Form::label('model', 'Model:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::text('model', '', ['class' => 'form-control', 'placeholder' => 'Model'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--year--}}
-            {{Form::label('year', 'Year:', ['class' => ''])}}
-            <div class="col-md-12">
-                {{Form::selectYear('year', 2000, 2020, ['class' => 'field'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--type--}}
-            {{Form::label('type', 'Type:', ['class' => ''])}}
-            <div class="col-md-12">
-                {{Form::select('type', ['Sedan' => 'Sedan', 'Hatchback' => 'Hatchback', 'MPV' => 'MPV', 'SUV' => 'SUV', 'Van' => 'Van', 'Crossover' => 'Crossover', 'Coupe' => 'Coupe', 'Convertible' => 'Convertible', 'Ute' => 'Ute', 'Truck' => 'Truck'], ['class' => 'field'])}} 
-            </div>
-        </div>
-        
-        <div class="form-group"> {{--seats--}}
-            {{Form::label('seats', 'Seats:', ['class' => ''])}}
-            <div class="col-md-12">
-                {{Form::selectRange('seats', 1, 8, ['class' => 'field'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--doors--}}
-            {{Form::label('doors', 'Doors:', ['class' => ''])}}
-            <div class="col-md-12">
-                {{Form::selectRange('doors', 1, 8, ['class' => 'field'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--trans--}}
-            {{Form::label('trans', 'Transmission:', ['class' => ''])}}
-            <div class="col-md-12 row">
-                {{Form::radio('trans', 'Automatic', ['class' => 'field'])}}
-                <p>Automatic</p> 
-            </div>
-            <div class="col-md-12 row">
-                {{Form::radio('trans', 'Manual', ['class' => 'field'])}}
-                <p>  Manual</p>  
-            </div>
-        </div>
-        <div class="form-group"> {{--pets?--}}
-            {{Form::label('petF', 'Pet friendly?:', ['class' => ''])}}
-            <div class="col-md-12 row">
-                {{Form::radio('petF', 1, ['class' => 'field'])}}
-                <p>Yes</p> 
-            </div>
-            <div class="col-md-12 row">
-                {{Form::radio('petF', 0, ['class' => 'field'])}}
-                <p>  No</p>  
-            </div>
-        </div>
-        <div class="form-group"> {{--roof racks?--}}
-            {{Form::label('roof_r', 'Roof racks?:', ['class' => ''])}}
-            <div class="col-md-12 row">
-                {{Form::radio('roof_r', 1, ['class' => 'field'])}}
-                <p>Yes</p> 
-            </div>
-            <div class="col-md-12 row">
-                {{Form::radio('roof_r', 0, ['class' => 'field'])}}
-                <p>  No</p>  
-            </div>
-        </div>
-        <div class="form-group"> {{--price--}}
-            {{Form::label('price', 'Price:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::text('price', '', ['class' => 'form-control', 'placeholder' => 'Price'])}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--odometer--}}
-            {{Form::label('odometer', 'Odometer:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::text('odometer', '', ['class' => 'form-control', 'placeholder' => 'Odometer'])}} 
-            </div>
-        </div>
-    </div>
+    <table class="table">
+        <tr class>
+            <td>
+                <div class="form-group"> {{--make--}}
+                    {{Form::label('make', 'Make:', ['class' => 'col-sm-4 col-form-label'])}}    
+                        {{Form::text('make', '', ['class' => 'form-control', 'placeholder' => 'Make'])}} 
+                </div>
+            </td>
+            <td>
+                <div class="form-group"> {{--model--}}
+                    {{Form::label('model', 'Model:', ['class' => 'col-sm-4 col-form-label'])}}  
+                        {{Form::text('model', '', ['class' => 'form-control', 'placeholder' => 'Model'])}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group"> {{--price--}}
+                    {{Form::label('price', 'Price ($):', ['class' => 'col-sm-4 col-form-label'])}}
+                        {{Form::text('price', '', ['class' => 'form-control', 'placeholder' => 'Price'])}} 
+                </div> 
+            </td>
+            <td>
+                <div class="form-group"> {{--odometer--}}
+                    {{Form::label('odometer', 'Odometer:', ['class' => 'col-sm-4 col-form-label'])}}
+                        {{Form::text('odometer', '', ['class' => 'form-control', 'placeholder' => 'Odometer'])}} 
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td>    
+                <div class="form-group"> {{--year--}}
+                    {{Form::label('year', 'Year:', ['class' => ''])}}
+                        {{Form::selectYear('year', 2000, 2020, ['class' => 'field'])}} 
+                </div>
+            </td>
+            <td>    
+                <div class="form-group"> {{--type--}}
+                    {{Form::label('type', 'Type:', ['class' => ''])}}
+                        {{Form::select('type', ['Sedan' => 'Sedan', 'Hatchback' => 'Hatchback', 'MPV' => 'MPV', 'SUV' => 'SUV', 'Van' => 'Van', 'Crossover' => 'Crossover', 'Coupe' => 'Coupe', 'Convertible' => 'Convertible', 'Ute' => 'Ute', 'Truck' => 'Truck'], ['class' => 'field'])}} 
+                </div>
+            </td>
+            <td>    
+                <div class="form-group"> {{--seats--}}
+                    {{Form::label('seats', 'Seats:', ['class' => ''])}}
+                        {{Form::selectRange('seats', 1, 8, ['class' => 'field'])}} 
+                </div>
+            </td>
+            <td>    
+                <div class="form-group"> {{--doors--}}
+                    {{Form::label('doors', 'Doors:', ['class' => ''])}}
+                        {{Form::selectRange('doors', 1, 8, ['class' => 'field'])}} 
+                </div>  
+            </td> 
+        </tr>
+        <tr>
+            <td>    
+                <div class="form-group"> {{--trans--}}
+                    {{Form::label('trans', 'Transmission:', ['class' => ''])}}
+                    <div class="col-md-12 row">
+                        {{Form::radio('trans', 'Automatic', ['class' => 'field'])}}
+                        <p>Automatic</p> 
+                    </div>
+                    <div class="col-md-12 row">
+                        {{Form::radio('trans', 'Manual', ['class' => 'field'])}}
+                        <p>  Manual</p>  
+                    </div>
+                </div>
+            </td>
+            <td>    
+                <div class="form-group"> {{--pets?--}}
+                    {{Form::label('petF', 'Pet friendly?:', ['class' => ''])}}
+                    <div class="col-md-12 row">
+                        {{Form::radio('petF', 1, ['class' => 'field'])}}
+                        <p>Yes</p> 
+                    </div>
+                    <div class="col-md-12 row">
+                        {{Form::radio('petF', 0, ['class' => 'field'])}}
+                        <p>  No</p>  
+                    </div>
+                </div>
+            </td> 
+            <td>    
+                <div class="form-group"> {{--roof racks?--}}
+                    {{Form::label('roof_r', 'Roof racks?:', ['class' => ''])}}
+                    <div class="col-md-12 row">
+                        {{Form::radio('roof_r', 1, ['class' => 'field'])}}
+                        <p>Yes</p> 
+                    </div>
+                    <div class="col-md-12 row">
+                        {{Form::radio('roof_r', 0, ['class' => 'field'])}}
+                        <p>  No</p>  
+                    </div>
+                </div>
+            </td>   
+        </tr>    
+    </table>
+    <hr>
     <div class="form-group"> {{--map search bar--}}
         {{Form::label('', 'Location:', ['class' => ''])}}
         {{Form::text('location', '', [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
@@ -116,7 +130,7 @@
     </div>
     <div class="form-group"> {{--img--}}
         <div class="">
-            {{Form::file('car_img')}}
+            <p>Add Photo: </p>{{Form::file('car_img')}}
         </div>
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}

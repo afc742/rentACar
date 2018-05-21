@@ -1,3 +1,3 @@
 <div class="container">
-    <p>Sorry, no threads.</p>
+    <p><b>You have no messages</b></p>
 </div>

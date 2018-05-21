@@ -14,8 +14,9 @@ class CreateBankTable extends Migration
     public function up()
     {
         Schema::create('bank', function (Blueprint $table) {
-            $table->unSignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('user_id');
             $table->string('bsb');
             $table->string('account_number');
         });
@@ -29,6 +30,5 @@ class CreateBankTable extends Migration
     public function down()
     {
         Schema::dropIfExists('bank');
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
     }
 }

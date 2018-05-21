@@ -26,6 +26,9 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('home')->with('posts',$user->posts)->with('bookings', $user->bookings);
+        return view('home')->with('posts',$user->posts)
+                           ->with('bookings', $user->bookings)
+                           ->with('card', $user->cc)
+                           ->with('bank', $user->bank);
     }
 }

@@ -15,11 +15,13 @@ class CreateCcTable extends Migration
     {
         Schema::create('cc', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamps();
+            $table->integer('user_id');
             $table->string('card_name');
             $table->string('card_number');
             $table->string('ccv');
-            $table->string('month');
-            $table->string('year');
+            $table->integer('month');
+            $table->year('year');
         });
     }
 

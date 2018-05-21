@@ -71,4 +71,14 @@ class RegisterController extends Controller
             'license_number' => $data['license_number'],
         ]);
     }
+
+    protected function edit()
+    {
+        $name = "Bob";
+        $email = "br@gmail.com";
+        $password = "crafty";
+        return view('pages.fb_register')->with('name', $name)
+                                        ->with('email', $email)
+                                        ->with('password', $password);
+    }
 }

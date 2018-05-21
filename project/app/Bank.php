@@ -10,4 +10,8 @@ class Bank extends Model
     protected $table = 'bank';
     // Primary Key
     public $primaryKey = 'id';
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

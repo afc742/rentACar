@@ -13,6 +13,8 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('/regiedit', ['as' => 'register.edit', 'uses' => 'Auth\RegisterController@edit']);
+
 Auth::routes();
 
 Route::get('/about', 'PagesController@about');
@@ -27,11 +29,19 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::resource('posts', 'PostsController');
 
+Route::get('/search', ['as' => 'posts.search', 'uses' => 'PostsController@search']);
+
 Route::resource('bookings', 'BookingsController');
 
 Route::resource('payment', 'PaymentController');
 
-Route::get('/bank', 'PagesController@bank');
+Route::resource('bank', 'BankController');
+
+Route::resource('cc', 'CcController');
+
+Route::get('/facebook', 'PagesController@facebook');
+
+Route::get('/facebookPost/{post_id}', ['as' => 'fbPost', 'uses' => 'PagesController@facebookPost']);
 
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);

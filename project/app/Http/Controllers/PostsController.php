@@ -209,4 +209,40 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/posts')->with('success', 'Listing Removed');
     }
+
+    public function search(Request $request)
+    {
+        if($request->petF == 1){
+            $pets = 1;
+        }
+        else{
+            $pets = 0;
+        }
+        if($request->roof_r == 1){
+            $racks = 1;
+        }
+        else{
+            $racks = 0;
+        }
+
+        if($pets == 1 && $racks == 0){
+            $posts = Post::where('petF', $pets)
+                         ->where('trans', $request->trans)
+                         ->paginate(12);
+            return view('posts.index')->with('posts', $posts);
+        }
+        if($racks == 1 && $pets == 0){
+            $posts = Post::where('roof_r', $racks)
+                         ->where('trans', $request->trans)
+                         ->paginate(12);
+            return view('posts.index')->with('posts', $posts);
+        }
+        if($racks == $pets){
+            $posts = Post::where('petF', $pets)
+                         ->where('roof_r', $racks)
+                         ->where('trans', $request->trans)
+                         ->paginate(12);
+            return view('posts.index')->with('posts', $posts);
+        }
+    }
 }

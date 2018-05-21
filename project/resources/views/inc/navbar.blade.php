@@ -19,7 +19,9 @@
                         @guest
                             <li><a class="nav-link" href="/#about">About</a></li>
                         @else
-                            <li><a class="nav-link" href="/posts/create">List Car</a></li>
+                        @if(Auth::user()->bank)
+                            <li><a class="nav-link" href="/posts/create"><b>List Car!</b></a></li>
+                        @endif
                             <li><a class="nav-link" href="/posts">Find Cars</a></li>
                             <li><a class="nav-link" href="/about">About</a></li>
                         @endguest
