@@ -18,7 +18,7 @@
                 @endforeach
         </div>
     @else
-        <p>No posts</p>
+        <h3>No Unavailabilities</h3>
     @endif
     <hr>
     {{$bookings->links()}}

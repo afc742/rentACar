@@ -36,23 +36,51 @@
 
     <br>
     <div class="row">
-        <div class="col-md-6">
-            <div class="well">
-                    <p><b>Description:</b></p>
-                    <p>{{$post->desc}}</p>
-            </div>
-        </div>
         @if(Auth::user()->id != $post->user_id)
+            <div class="col-md-4">
+                <div class="well">
+                        <p><b>Description:</b></p>
+                        <p>{{$post->desc}}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well">
+                    {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+                    <div class="row">
+                        <div class="form-group"> {{--start_date--}}
+                            {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                            <div class="col-md-12">
+                                {{Form::date('start_date', \Carbon\Carbon::now())}} 
+                            </div>
+                        </div>
+                        <div class="form-group"> {{--end_date--}}
+                            {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
+                            <div class="col-md-12">
+                                {{Form::date('end_date', \Carbon\Carbon::now())}} 
+                            </div>
+                        </div>
+                        <input type='hidden' value='{{$post->id}}' name='post_id'>
+                        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well center">
+                        <a href="/posts" class="btn btn-primary">Message {{$post->user->name}}</a>
+                        <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
+                </div>
+            </div>
+        @else
             <div class="col-md-6">
                 <div class="well">
-                    <div class="row">
-                        <div class="col-md-6 text-right">
-                            <a href="/posts" class="btn btn-primary">Message {{$post->user->name}}</a>
-                        </div>
-                        <div class="col-md-6 text-left">
-                            <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
-                        </div>
-                    </div>
+                        <p><b>Description:</b></p>
+                        <p>{{$post->desc}}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="well center">
+                    <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
                 </div>
             </div>
         @endif
@@ -70,24 +98,6 @@
     <div class="center">
             <small><b>Created on {{$post->created_at}}</b> by <b>{{$post->user->name}}</b></small>
     </div>
-
-    {!! Form::open(['action' => 'BookingsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
-    <div class="row">
-        <div class="form-group"> {{--start_date--}}
-            {{Form::label('start_date', 'Pickup Date:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::date('start_date', \Carbon\Carbon::now())}} 
-            </div>
-        </div>
-        <div class="form-group"> {{--end_date--}}
-            {{Form::label('end_date', 'Dropoff Date:', ['class' => 'col-sm-4 col-form-label'])}}
-            <div class="col-md-12">
-                {{Form::date('end_date', \Carbon\Carbon::now())}} 
-            </div>
-        </div>
-        <input type='hidden' value='{{$post->id}}' name='post_id'>
-    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-    {!! Form::close() !!}
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlTjBH4hS_0AL3W0L4lpz24mR0HVZILDc" type="text/javascript"></script>
