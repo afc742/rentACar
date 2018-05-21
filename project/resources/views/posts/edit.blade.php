@@ -3,45 +3,45 @@
 @section('content')
 
 <div class="container">
-    <h1>Create Listing</h1>
+    <h1>Edit Listing</h1>
     <hr>
-    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
+    {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data', 'files'=>true]) !!}
     <div class="row">
         <div class="form-group"> {{--make--}}
             {{Form::label('make', 'Make:', ['class' => 'col-sm-4 col-form-label'])}}
             <div class="col-md-12">
-                {{Form::text('make', '', ['class' => 'form-control', 'placeholder' => 'Make'])}} 
+                {{Form::text('make', $post->make, ['class' => 'form-control', 'placeholder' => 'Make'])}} 
             </div>
         </div>
         <div class="form-group"> {{--model--}}
             {{Form::label('model', 'Model:', ['class' => 'col-sm-4 col-form-label'])}}
             <div class="col-md-12">
-                {{Form::text('model', '', ['class' => 'form-control', 'placeholder' => 'Model'])}} 
+                {{Form::text('model', $post->model, ['class' => 'form-control', 'placeholder' => 'Model'])}} 
             </div>
         </div>
         <div class="form-group"> {{--year--}}
             {{Form::label('year', 'Year:', ['class' => ''])}}
             <div class="col-md-12">
-                {{Form::selectYear('year', 2000, 2020, ['class' => 'field'])}} 
+                {{Form::selectYear('year', 2000, 2020, ['class' => 'field', 'selected' => $post->year])}} 
             </div>
         </div>
         <div class="form-group"> {{--type--}}
             {{Form::label('type', 'Type:', ['class' => ''])}}
             <div class="col-md-12">
-                {{Form::select('type', ['Sedan' => 'Sedan', 'Hatchback' => 'Hatchback', 'MPV' => 'MPV', 'SUV' => 'SUV', 'Van' => 'Van', 'Crossover' => 'Crossover', 'Coupe' => 'Coupe', 'Convertible' => 'Convertible', 'Ute' => 'Ute', 'Truck' => 'Truck'], ['class' => 'field'])}} 
+                {{Form::select('type', ['Sedan' => 'Sedan', 'Hatchback' => 'Hatchback', 'MPV' => 'MPV', 'SUV' => 'SUV', 'Van' => 'Van', 'Crossover' => 'Crossover', 'Coupe' => 'Coupe', 'Convertible' => 'Convertible', 'Ute' => 'Ute', 'Truck' => 'Truck'], ['class' => 'field', 'selected' => $post->type])}} 
             </div>
         </div>
         
         <div class="form-group"> {{--seats--}}
             {{Form::label('seats', 'Seats:', ['class' => ''])}}
             <div class="col-md-12">
-                {{Form::selectRange('seats', 1, 8, ['class' => 'field'])}} 
+                {{Form::selectRange('seats', 1, 8, ['class' => 'field', 'selected' => $post->seats])}} 
             </div>
         </div>
         <div class="form-group"> {{--doors--}}
             {{Form::label('doors', 'Doors:', ['class' => ''])}}
             <div class="col-md-12">
-                {{Form::selectRange('doors', 1, 8, ['class' => 'field'])}} 
+                {{Form::selectRange('doors', 1, 8, ['class' => 'field', 'selected' => $post->doors])}} 
             </div>
         </div>
         <div class="form-group"> {{--trans--}}
@@ -69,7 +69,7 @@
     </div>
     <div class="form-group"> {{--map search bar--}}
         {{Form::label('', 'Location:', ['class' => ''])}}
-        {{Form::text('location', '', [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
+        {{Form::text('location', $post->location, [ 'id' => 'searchmap', 'class' => 'form-control', 'placeholder' => 'Address'])}}
     </div>
         
     <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div> {{--map--}}
@@ -77,18 +77,18 @@
 
     <div class="form-group"> {{--lat--}}
         {{Form::label('lat', 'Latitude:', ['class' => ''])}}
-        {{Form::text('lat', '', [ 'id' => 'lat', 'class' => 'form-control input-sm', 'placeholder' => 'Latitude', 'readonly' => 'true'])}}
+        {{Form::text('lat', $post->lat, [ 'id' => 'lat', 'class' => 'form-control input-sm', 'placeholder' => 'Latitude', 'readonly' => 'true'])}}
     </div>
 
     <div class="form-group">{{--lng--}}
         {{Form::label('lng', 'Longitude:', ['class' => ''])}}
-        {{Form::text('lng', '', [ 'id' => 'lng', 'class' => 'form-control input-sm', 'placeholder' => 'Longitude', 'readonly' => 'true'])}}
+        {{Form::text('lng', $post->lng, [ 'id' => 'lng', 'class' => 'form-control input-sm', 'placeholder' => 'Longitude', 'readonly' => 'true'])}}
     </div>
 
     <div class="form-group"> {{--desc--}}
         {{Form::label('desc', 'Description:', ['class' => ''])}}
         <div class="">
-            {{Form::textArea('desc', '', ['class' => 'form-control', 'placeholder' => '...Desc'])}}
+            {{Form::textArea('desc', $post->desc, ['class' => 'form-control', 'placeholder' => '...Desc'])}}
         </div>
     </div>
     <div class="form-group"> {{--img--}}
@@ -96,25 +96,39 @@
             {{Form::file('car_img')}}
         </div>
     </div>
+    <hr>
+    <div class="right">
+            {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+            {{Form::hidden('_method', 'DELETE')}}
+            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+            {!!Form::close()!!}
+        </div>
+    {{Form::hidden('_method', 'PUT')}}
     {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
-    <br><br><hr><br><br>
+    <div class="center">
+            <small><b>Created on {{$post->created_at}}</b> by <b>{{$post->user->name}}</b></small>
+    </div>
+    <br>
+    <br>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlTjBH4hS_0AL3W0L4lpz24mR0HVZILDc&libraries=places" type="text/javascript"></script>
 <script>
+    var lat = {{$post->lat}};
+    var lng = {{$post->lng}};
 	var map = new google.maps.Map(document.getElementById('map-canvas'),{
 		center:{
-            lat: -34.4278121,
-            lng: 150.89306069999998
+            lat,
+            lng
 		},
 		zoom:15
 	});
 	var marker = new google.maps.Marker({
 		position: {
-			lat: -34.4278121,
-        	lng: 150.89306069999998
+			lat,
+        	lng
 		},
 		map: map,
 		draggable: true

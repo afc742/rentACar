@@ -27,4 +27,6 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::resource('posts', 'PostsController');
 
+Route::resource('bookings', 'BookingsController');
+
 Route::get('/bank', 'PagesController@bank');

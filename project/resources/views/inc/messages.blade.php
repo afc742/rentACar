@@ -6,7 +6,7 @@
     @endforeach
 @endif
 
-@if(session('succcess'))
+@if(session('success'))
     <div class="alert alert-success">
         {{session('success')}}
     </div>
