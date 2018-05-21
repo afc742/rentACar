@@ -60,6 +60,8 @@ class PostsController extends Controller
             'location' => 'required',
             'petF' => 'required',
             'price' => 'required',
+            'odometer' => 'required',
+            'roof_r'=> 'required',
         ]);
         if($request->hasFile('car_img'))
         {
@@ -92,6 +94,8 @@ class PostsController extends Controller
         $post->location = $request->input('location');
         $post->petF = $request->input('petF');
         $post->price = $request->input('price');
+        $post->odometer = $request->input('odometer');
+        $post->roof_r = $request->input('roof_r');
         $post->save();
 
         return redirect('/posts')->with('success', 'Listing Added');
@@ -149,6 +153,8 @@ class PostsController extends Controller
             'lng'=> 'required',
             'location' => 'required',
             'petF' => 'required',
+            'odometer' => 'required',
+            'roof_r'=> 'required',
         ]);
         if($request->hasFile('car_img'))
         {
@@ -179,6 +185,8 @@ class PostsController extends Controller
         $post->lng = $request->input('lng');
         $post->location = $request->input('location');
         $post->petF = $request->input('petF');
+        $post->odometer = $request->input('odometer');
+        $post->roof_r = $request->input('roof_r');
         $post->save();
 
         return redirect('/posts')->with('success', 'Listing Updated');

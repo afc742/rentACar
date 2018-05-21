@@ -55,10 +55,11 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function create($recipient_id)
+    public function create($recipient_id, $post_id)
     {
         $users = User::where('id', '!=', Auth::id())->get();
-        return view('messenger.create', compact('users'))->with('recipient_id', $recipient_id);
+        return view('messenger.create', compact('users'))->with('recipient_id', $recipient_id)
+                                                         ->with('post_id', $post_id);
     }
     /**
      * Stores a new message thread.

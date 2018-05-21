@@ -66,6 +66,29 @@
                 <p>  No</p>  
             </div>
         </div>
+        <div class="form-group"> {{--roof racks?--}}
+            {{Form::label('roof_r', 'Roof racks?:', ['class' => ''])}}
+            <div class="col-md-12 row">
+                {{Form::radio('roof_r', 1, ['class' => 'field'])}}
+                <p>Yes</p> 
+            </div>
+            <div class="col-md-12 row">
+                {{Form::radio('roof_r', 0, ['class' => 'field'])}}
+                <p>  No</p>  
+            </div>
+        </div>
+        <div class="form-group"> {{--price--}}
+            {{Form::label('price', 'Price:', ['class' => 'col-sm-4 col-form-label'])}}
+            <div class="col-md-12">
+                {{Form::text('price', 'price', ['class' => 'form-control', 'placeholder' => 'Price'])}} 
+            </div>
+        </div>
+        <div class="form-group"> {{--odometer--}}
+            {{Form::label('odometer', 'Odometer:', ['class' => 'col-sm-4 col-form-label'])}}
+            <div class="col-md-12">
+                {{Form::text('odometer', 'odometer', ['class' => 'form-control', 'placeholder' => 'Odometer'])}} 
+            </div>
+        </div>
     </div>
     <div class="form-group"> {{--map search bar--}}
         {{Form::label('', 'Location:', ['class' => ''])}}

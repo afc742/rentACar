@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+        <a href="/posts/{{$post_id}}" class="btn btn-primary">Go Back</a>
+        <br><br>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">

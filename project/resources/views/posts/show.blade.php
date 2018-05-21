@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4">
                 <div class="well center">
-                        <a href="{!! route('messages.create', $post->user->id) !!}" class="btn btn-primary">Message {{$post->user->name}}</a>
+                        <a href="{!! route('messages.create',[$post->user->id, $post->id]) !!}" class="btn btn-primary">Message {{$post->user->name}}</a>
                         <a href='/bookings/{{$post->id}}' class="btn btn-primary">View Unavailabilities</a>
                 </div>
             </div>
