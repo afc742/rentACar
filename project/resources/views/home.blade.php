@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Welcome back {{Auth::user()->name}}!</div>
                 <div class="card-body">
-                <hr><hr>
+                    <br>
                     <h3>Your listings</h3>
                     <table class="table table-striped">
                         @if(count($posts) > 0)
@@ -17,12 +17,11 @@
                                 <td><a href="/posts/{{$post->id}}/edit" class="btn btn-primary right">Edit</a></td>
                             </tr>
                             @endforeach
-                            </table>
                         @else
                             <br>
                             <td>You have no vehicles listed for rent!</td>
-                            </table>
                         @endif
+                    </table>
                     <h3>Your bookings</h3>
                     <table class="table table-striped">
                         @if(count($bookings) > 0)
