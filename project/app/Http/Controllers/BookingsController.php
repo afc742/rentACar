@@ -49,7 +49,7 @@ class BookingsController extends Controller
             $booking->end_date = $request->input('end_date');
             $booking->save();
             
-            $days = \Carbon\Carbon::parse(request($request->start_date))->diffInDays(\Carbon\Carbon::parse(request($request->end_date)));
+            $days = \Carbon\Carbon::parse($request->start_date)->diffInDays(\Carbon\Carbon::parse($request->end_date));
             $price = $request->input('post_price') * $days; 
 
             return redirect()->route('payment.show', $price)->with('success', 'Booking added');
