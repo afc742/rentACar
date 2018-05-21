@@ -9,6 +9,7 @@
     </div>
     <div id="map-canvas" style="width: 1100px; height: 300px; margin: auto"></div>
     <br>
+    
     @if(count($posts) > 0)
         <div class="container-fluid">
             <div class="row">
