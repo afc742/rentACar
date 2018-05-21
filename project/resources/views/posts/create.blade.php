@@ -66,6 +66,12 @@
                 <p>  No</p>  
             </div>
         </div>
+        <div class="form-group"> {{--price--}}
+            {{Form::label('price', 'Price:', ['class' => 'col-sm-4 col-form-label'])}}
+            <div class="col-md-12">
+                {{Form::text('price', '', ['class' => 'form-control', 'placeholder' => 'Price'])}} 
+            </div>
+        </div>
     </div>
     <div class="form-group"> {{--map search bar--}}
         {{Form::label('', 'Location:', ['class' => ''])}}

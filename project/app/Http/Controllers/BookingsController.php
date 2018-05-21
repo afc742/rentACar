@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
-use Calendar;
 
 class BookingsController extends Controller
 {
@@ -36,17 +35,23 @@ class BookingsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
         ]);
-        $booking = new Booking;
-        $booking->user_id = auth()->user()->id;
-        $booking->post_id = $request->input('post_id');
-        $booking->start_date = $request->input('start_date');
-        $booking->end_date = $request->input('end_date');
-        $booking->save();
+        $result = Booking::where('start_date', '>=', $request->start_date)
+                                ->where('end_date', '<=', $request->end_date)
+                                ->where('post_id',$request->post_id)->first();
+        if(!$result){
+            $booking = new Booking;
+            $booking->user_id = auth()->user()->id;
+            $booking->post_id = $request->input('post_id');
+            $booking->start_date = $request->input('start_date');
+            $booking->end_date = $request->input('end_date');
+            $booking->save();
+            return redirect('/home')->with('success', 'Booking added');
+        }
         
-        return redirect('/bookings')->with('success', 'Reservation added');
+        return redirect()->route('posts.show', $request->input('post_id'))->with('error', 'Date unavailable, please check unavailabilities');
                                     
         //return view('posts.showBookings')->with('success', 'Booking Added');
     }

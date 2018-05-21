@@ -6,6 +6,7 @@
     <a href="/posts" class="btn btn-primary">Go Back</a>
     <br><br>
     <h1>{{$post->make}} {{$post->model}} - {{$post->year}}</h1>
+    <h3 class="right">${{$post->price}} per day</h3>
     <h3>{{$post->location}}</h3>
     
     <div class="row">
