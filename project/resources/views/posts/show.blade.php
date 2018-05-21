@@ -60,6 +60,7 @@
                             </div>
                         </div>
                         <input type='hidden' value='{{$post->id}}' name='post_id'>
+                        <input type='hidden' value='{{$post->price}}' name='post_price'>
                         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                         {!! Form::close() !!}
                     </div>

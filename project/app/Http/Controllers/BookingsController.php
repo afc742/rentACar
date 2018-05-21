@@ -48,7 +48,11 @@ class BookingsController extends Controller
             $booking->start_date = $request->input('start_date');
             $booking->end_date = $request->input('end_date');
             $booking->save();
-            return redirect('/home')->with('success', 'Booking added');
+            
+            $days = \Carbon\Carbon::parse(request($request->start_date))->diffInDays(\Carbon\Carbon::parse(request($request->end_date)));
+            $price = $request->input('post_price') * $days; 
+
+            return redirect()->route('payment.show', $price)->with('success', 'Booking added');
         }
         
         return redirect()->route('posts.show', $request->input('post_id'))->with('error', 'Date unavailable, please check unavailabilities');

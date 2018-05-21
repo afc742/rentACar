@@ -29,4 +29,6 @@ Route::resource('posts', 'PostsController');
 
 Route::resource('bookings', 'BookingsController');
 
+Route::resource('payment', 'PaymentController');
+
 Route::get('/bank', 'PagesController@bank');
