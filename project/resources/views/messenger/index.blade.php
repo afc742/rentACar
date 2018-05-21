@@ -16,5 +16,7 @@
                 </div>
             </div>
     </div>
+    <br>
+    {{$threads->links()}}
 </div>
 @stop
