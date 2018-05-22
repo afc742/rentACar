@@ -34,14 +34,18 @@
                     {{Form::radio('trans', 'Manual', ['class' => 'field'])}}
                     <p>  M</p>  
                 </div>
+                <div class="right" style="margin-right: 20px">
+                    {{Form::radio('trans', 'Both', ['class' => 'field'])}}
+                    <p>  All</p>  
+                </div>
                 <p class="right" style="margin-right: 20px">Transmition:</p>
             </div>
         </div>
         <div class = "col-md-3">
             <div class="form-group center">
-                {{Form::submit('Search', ['class' => 'btn btn-primary'])}}
+                {{Form::submit('Filter search', ['class' => 'btn btn-primary'])}}
                 {!! Form::close() !!}
-                <a href="/posts" class="btn btn-primary">All</a>
+                <a href="/posts" class="btn btn-primary">Search all</a>
             </div>
         </div>
     </div>

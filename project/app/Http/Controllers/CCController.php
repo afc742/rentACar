@@ -29,8 +29,8 @@
         {
             $this->validate($request, [
                 'card_name' => 'required',
-                'card_number' => 'required',
-                'ccv' => 'required',
+                'card_number' => 'required|digits:16',
+                'ccv' => 'required|digits:3',
                 'month' => 'required',
                 'year' => 'required',
             ]);

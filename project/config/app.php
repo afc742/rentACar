@@ -162,7 +162,6 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Cmgmyr\Messenger\MessengerServiceProvider::class,
 
 
 

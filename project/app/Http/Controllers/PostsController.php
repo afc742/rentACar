@@ -224,25 +224,45 @@ class PostsController extends Controller
         else{
             $racks = 0;
         }
-
-        if($pets == 1 && $racks == 0){
-            $posts = Post::where('petF', $pets)
-                         ->where('trans', $request->trans)
-                         ->paginate(12);
-            return view('posts.index')->with('posts', $posts);
+        if($request->trans == 'Both')
+        {
+            if($pets == 1 && $racks == 0){
+                $posts = Post::where('petF', $pets)
+                            ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
+            if($racks == 1 && $pets == 0){
+                $posts = Post::where('roof_r', $racks)
+                            ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
+            if($racks == $pets){
+                $posts = Post::where('petF', $pets)
+                            ->where('roof_r', $racks)
+                            ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
         }
-        if($racks == 1 && $pets == 0){
-            $posts = Post::where('roof_r', $racks)
-                         ->where('trans', $request->trans)
-                         ->paginate(12);
-            return view('posts.index')->with('posts', $posts);
-        }
-        if($racks == $pets){
-            $posts = Post::where('petF', $pets)
-                         ->where('roof_r', $racks)
-                         ->where('trans', $request->trans)
-                         ->paginate(12);
-            return view('posts.index')->with('posts', $posts);
+        else{
+            if($pets == 1 && $racks == 0){
+                $posts = Post::where('petF', $pets)
+                             ->where('trans', $request->trans)
+                             ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
+            if($racks == 1 && $pets == 0){
+                $posts = Post::where('roof_r', $racks)
+                             ->where('trans', $request->trans)
+                             ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
+            if($racks == $pets){
+                $posts = Post::where('petF', $pets)
+                             ->where('roof_r', $racks)
+                             ->where('trans', $request->trans)
+                             ->paginate(12);
+                return view('posts.index')->with('posts', $posts);
+            }
         }
     }
 }

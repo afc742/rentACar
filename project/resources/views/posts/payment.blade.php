@@ -10,7 +10,7 @@
                         <div class="card-header">Payment</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <h5>Price of booking: {{$price}}</h5>
+                                <h5>Price of booking: ${{$price}}</h5>
                                 <h5>Include $35 fee to avoid excess? &nbsp;{{Form::checkbox('fee', 35, ['class' => 'field'])}}</h5>
                                 <a href="{!! route('payment.index') !!}" class="btn btn-primary">Pay now</a>
                             </div>   
